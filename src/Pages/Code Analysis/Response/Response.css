@@ -1,0 +1,30 @@
+.explanationArea {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.explantionTextArea {
+  background-color: #282828;
+  color: #fff;
+  width: 50%;
+  font-size: 0.5rem;
+  border-radius: 0.35rem;
+  padding: 2rem;
+}
+
+.buttonArea {
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.buttonArea button {
+  background-color: #464646;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
+  border: inherit;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
