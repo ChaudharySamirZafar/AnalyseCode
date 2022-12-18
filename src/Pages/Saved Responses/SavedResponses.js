@@ -10,7 +10,7 @@ const SavedResponses = () => {
   
   return (
     <div className="savedArea">
-      <h1 className="title"> Saved Responses </h1>
+      <h1 className="title"> Saved Explanations</h1>
       <div className="savedAreaGrid">
         {listOfSavedResponses.map((individualResponse) => (
           <SavedResponse response={individualResponse} key={individualResponse.name}/>

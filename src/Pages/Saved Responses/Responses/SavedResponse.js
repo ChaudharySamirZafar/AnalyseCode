@@ -44,8 +44,8 @@ const SavedResponse = (props) => {
       <div className="savedResponseContainer">
         <h1>{response.name}</h1>
         <p>{response.description}</p>
-        <button onClick={() => setIsOpen(true)}> View Explantion </button>
-        <button onClick={() => setIsDelete(true)}> Delete Explantion </button>
+        <button onClick={() => setIsOpen(true)}> View Explanation </button>
+        <button onClick={() => setIsDelete(true)}> Delete Explanation </button>
       </div>
       {isOpen && <ModalVariant object={modalStructure} />}
       {isDelete && <ModalVariant object={deleteModalStructure} />}
