@@ -9,7 +9,9 @@ const CodeExplanationContext = React.createContext({
   updateList: (newObject) => {},
   deleteObject: (object) => {},
   modalOpen: false,
-  setModalOpen: (state) => {}
+  setModalOpen: (state) => {},
+  languageSelected: "",
+  setLanguageSelected: (newLang) => {}
 });
 
 export const CodeExplanationContextProvider = (props) => {
@@ -23,6 +25,9 @@ export const CodeExplanationContextProvider = (props) => {
   const [listOfExplanations, setListOfExplanations] = useState(JSON.parse(initialListOfExplanations) ?? []);
 
   const [modalOpen, setModalOpen] = useState(false);
+
+  const initalSetLang = localStorage.getItem("ideLang");
+  const [lang, setLang] = useState(initalSetLang ?? "java");
 
   const updateCodeHandler = (newCode) => {
     setCode(newCode);
@@ -50,6 +55,11 @@ export const CodeExplanationContextProvider = (props) => {
     localStorage.setItem('listOfExplanations', JSON.stringify(list)); 
   }
 
+  const setLangHandler = (newLang) => {
+    localStorage.setItem('ideLang', newLang);
+    setLang(newLang);
+  }
+
   const contextValue = {
     code: code,
     explanation: explanation,
@@ -59,7 +69,9 @@ export const CodeExplanationContextProvider = (props) => {
     updateList: addExplanationToList,
     deleteObject: deleteExplanation,
     modalOpen: modalOpen,
-    setModalOpen: setModalOpen
+    setModalOpen: setModalOpen,
+    languageSelected: lang,
+    setLanguageSelected: setLangHandler
   };
 
   return (

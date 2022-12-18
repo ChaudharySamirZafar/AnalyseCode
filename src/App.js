@@ -7,18 +7,15 @@ import EditorSelection from "./Pages/Code Analysis/EditorSelection/EditorSelecti
 import { useState } from "react";
 
 function App() {
-  const preSetLang = localStorage.getItem("ideLang");
-  const [lang, setLang] = useState(preSetLang ?? "java");
-
   return (
     <div className="App">
       <CodeExplanationContextProvider>
         <div className="container">
           <div>
-            <EditorSelection setLang={setLang} lang={lang}/>
+            <EditorSelection/>
           </div>
           <div className="editorColumn">
-            <Editor lang={lang}/>
+            <Editor/>
           </div>
           <div className="response">
             <Response />

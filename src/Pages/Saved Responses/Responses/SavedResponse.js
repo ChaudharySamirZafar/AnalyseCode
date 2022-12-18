@@ -15,6 +15,7 @@ const SavedResponse = (props) => {
     context.updateCode(response.code);
     context.updateExplanation(response.explanation);
     context.setModalOpen(false);
+    context.setLanguageSelected(response.codeLang);
   };
 
   const setIsOpenHandler = () => {

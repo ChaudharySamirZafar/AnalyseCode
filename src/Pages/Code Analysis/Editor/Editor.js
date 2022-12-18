@@ -22,14 +22,14 @@ const Editor = (props) => {
   const onChangeHandler = (value) => {
     context.updateCode(value);
   };
-
+  
   return (
     <React.Fragment>
       <AceEditor
         width="75%"
         className="editor"
         placeholder="Place your code in here, then hit the 'Explain My Code' button"
-        mode={props.lang}
+        mode={context.languageSelected}
         theme="monokai"
         name="blah2"
         maxLines={30}

@@ -65,6 +65,7 @@ const Response = () => {
       description: description,
       explanation: context.explanation,
       code: context.code,
+      codeLang: context.languageSelected
     });
     context.setModalOpen(false);
   };

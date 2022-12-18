@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import "./EditorSelection.css"
+import React, { useContext } from "react";
+import "./EditorSelection.css";
+import CodeExplanationContext from "../../../Store/CodeExplanationContext";
 
 const EditorSelection = (props) => {
+  const ctx = useContext(CodeExplanationContext);
+
   const langSelectorHandler = (event) => {
     const newVal = event.target.value;
-    localStorage.setItem("ideLang", newVal);
-    props.setLang(newVal);
+    ctx.setLanguageSelected(newVal);
   }
 
   return (
     <div className="selection">
-      <select defaultValue={props.lang} onChange={langSelectorHandler}>
+      <select value={ctx.languageSelected} onChange={langSelectorHandler}>
         <option value="c_cpp">C & C++</option>
         <option value="java">Java</option>
         <option value="python">Python</option>
