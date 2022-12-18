@@ -138,6 +138,10 @@ textarea {
   margin-bottom: 3rem;
 }
 
+ul li {
+  list-style: none;
+}
+
 @media only screen and (max-width: 600px) {
   .modal {
     width: 350px;
