@@ -15,6 +15,7 @@ const Response = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const sendRunCodeRequest = () => {
     if (context.code.length === 0) return;
@@ -42,21 +43,29 @@ const Response = () => {
         if (response.ok) {
           return response.json();
         } else {
+          throw new Error("Message too long");
         }
       })
       .then((data) => {
         setExplanation(data.choices[0].text);
         setIsLoading(false);
+        setIsError(false);
       })
       .catch((err) => {
-        console.log(err);
+        setIsLoading(false);
+        setIsError(true);
       });
   };
 
   const saveButtonHandler = (name, description) => {
     setIsOpen(false);
-    context.updateList({name : name, description: description, explanation: context.explanation, code: context.code})
-  }
+    context.updateList({
+      name: name,
+      description: description,
+      explanation: context.explanation,
+      code: context.code,
+    });
+  };
 
   const modalStructure = {
     setIsOpen: setIsOpen,
@@ -64,8 +73,8 @@ const Response = () => {
     heading: "Save Explanation",
     content: "Please provide a name and description",
     buttonText: "Save",
-    buttonCallBack: saveButtonHandler
-  }
+    buttonCallBack: saveButtonHandler,
+  };
 
   return (
     <React.Fragment>
@@ -80,8 +89,18 @@ const Response = () => {
         </div>
         <div className="explantionTextArea">
           {isLoading && <LoadingSpinner />}
-          {!isLoading && <h1 className="text"> {context.explanation} </h1>}
-          {isOpen && <Modal object={modalStructure}/>}
+          {!isLoading && !isError && (
+            <h1 className="text"> {context.explanation} </h1>
+          )}
+          {!isLoading && isError && (
+            <h1 className="text">
+              The AI model that is being used to generate code only allows for
+              4000 tokens. Your code at maximum can be 1000 tokens. Please check
+              how many tokens your code is using
+              <a href="https://beta.openai.com/tokenizer"> HERE</a>
+            </h1>
+          )}
+          {isOpen && <Modal object={modalStructure} />}
         </div>
       </div>
     </React.Fragment>

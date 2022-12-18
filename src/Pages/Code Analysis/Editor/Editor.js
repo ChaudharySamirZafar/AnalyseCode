@@ -1,6 +1,14 @@
 import React from "react";
 import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-ruby";
+import "ace-builds/src-noconflict/mode-php";
+import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/mode-erlang";
+import "ace-builds/src-noconflict/mode-dart";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
@@ -8,7 +16,7 @@ import "./Editor.css";
 import CodeExplanationContext from "../../../Store/CodeExplanationContext";
 import { useContext } from "react";
 
-const Editor = () => {
+const Editor = (props) => {
   const context = useContext(CodeExplanationContext);
 
   const onChangeHandler = (value) => {
@@ -21,7 +29,7 @@ const Editor = () => {
         width="75%"
         className="editor"
         placeholder="Place your code in here, then hit the 'Explain My Code' button"
-        mode="java"
+        mode={props.lang}
         theme="monokai"
         name="blah2"
         maxLines={30}

@@ -1,0 +1,11 @@
+.selection {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.selection select {
+  padding: 0.25rem;
+  background-color: #282828;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
