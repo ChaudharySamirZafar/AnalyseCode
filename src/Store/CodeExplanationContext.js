@@ -4,7 +4,10 @@ const CodeExplanationContext = React.createContext({
   code: "",
   explanation: "",
   updateCode: (newCode) => {},
-  updateExplanation: (newExplanation) => {}
+  updateExplanation: (newExplanation) => {},
+  listOfExplanations: [],
+  updateList: (newObject) => {},
+  deleteObject: (object) => {}
 });
 
 export const CodeExplanationContextProvider = (props) => {
@@ -13,6 +16,9 @@ export const CodeExplanationContextProvider = (props) => {
 
   const initalExplanation = localStorage.getItem('explanation');
   const [explanation, setExplanation] = useState(initalExplanation);
+
+  const initialListOfExplanations = localStorage.getItem('listOfExplanations');
+  const [listOfExplanations, setListOfExplanations] = useState(JSON.parse(initialListOfExplanations) ?? []);
 
   const updateCodeHandler = (newCode) => {
     setCode(newCode);
@@ -24,11 +30,30 @@ export const CodeExplanationContextProvider = (props) => {
     localStorage.setItem('explanation', newExplanation)
   };
 
+  const addExplanationToList = (newObject) => {
+    setListOfExplanations((prevState) => [...prevState, newObject]);
+    var list = [...listOfExplanations, newObject];
+    localStorage.setItem('listOfExplanations', JSON.stringify(list)); 
+  }
+
+  const deleteExplanation = (object) => {
+    var list = [...listOfExplanations];
+
+    const objWithIdIndex = list.findIndex((obj) => obj.name === object.name);
+    list.splice(objWithIdIndex, 1);
+
+    setListOfExplanations(list);
+    localStorage.setItem('listOfExplanations', JSON.stringify(list)); 
+  }
+
   const contextValue = {
     code: code,
     explanation: explanation,
     updateCode: updateCodeHandler,
     updateExplanation: updateExplanationHandler,
+    listOfExplanations: listOfExplanations,
+    updateList: addExplanationToList,
+    deleteObject: deleteExplanation
   };
 
   return (

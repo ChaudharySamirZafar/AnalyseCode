@@ -1,0 +1,36 @@
+.savedArea {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    margin-top: 1rem;
+}
+
+.savedAreaGrid {
+    display: grid;
+    grid-template-columns: 45%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 1075px) {
+    .savedAreaGrid {
+        grid-template-columns: 55%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .savedAreaGrid {
+        grid-template-columns: 75%;
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    .savedAreaGrid {
+        grid-template-columns: 85%;
+    }
+}

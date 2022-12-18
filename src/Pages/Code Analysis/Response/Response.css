@@ -28,3 +28,15 @@
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1075px) {
+  .explantionTextArea {
+      width: 80%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .explantionTextArea {
+      width: 85%;
+  }
+}

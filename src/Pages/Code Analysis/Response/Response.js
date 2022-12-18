@@ -4,6 +4,7 @@ import CodeExplanationContext from "../../../Store/CodeExplanationContext";
 import { useContext, useState } from "react";
 import EndPoints from "../../../Store/EndPoints.json";
 import LoadingSpinner from "../../../LoadingSpinner/LoadingSpinner";
+import Modal from "../../../Store/Modal/Modal";
 
 const Response = () => {
   const context = useContext(CodeExplanationContext);
@@ -12,6 +13,7 @@ const Response = () => {
     context.updateExplanation(newExplanation);
   };
 
+  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const sendRunCodeRequest = () => {
@@ -51,6 +53,20 @@ const Response = () => {
       });
   };
 
+  const saveButtonHandler = (name, description) => {
+    setIsOpen(false);
+    context.updateList({name : name, description: description, explanation: context.explanation, code: context.code})
+  }
+
+  const modalStructure = {
+    setIsOpen: setIsOpen,
+    isForm: true,
+    heading: "Save Explanation",
+    content: "Please provide a name and description",
+    buttonText: "Save",
+    buttonCallBack: saveButtonHandler
+  }
+
   return (
     <React.Fragment>
       <div className="explanationArea">
@@ -58,13 +74,14 @@ const Response = () => {
           <button className="explainBtn" onClick={sendRunCodeRequest}>
             Explain My Code
           </button>
-          <button className="explainBtn" onClick={sendRunCodeRequest}>
+          <button className="explainBtn" onClick={() => setIsOpen(true)}>
             Save Explanation
           </button>
         </div>
         <div className="explantionTextArea">
           {isLoading && <LoadingSpinner />}
           {!isLoading && <h1 className="text"> {context.explanation} </h1>}
+          {isOpen && <Modal object={modalStructure}/>}
         </div>
       </div>
     </React.Fragment>
