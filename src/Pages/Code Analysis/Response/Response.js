@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import EndPoints from "../../../Store/EndPoints.json";
 import LoadingSpinner from "../../../LoadingSpinner/LoadingSpinner";
 import Modal from "../../../Store/Modal/Modal";
+import { createPortal } from "react-dom";
 
 const Response = () => {
   const context = useContext(CodeExplanationContext);
@@ -65,10 +66,16 @@ const Response = () => {
       explanation: context.explanation,
       code: context.code,
     });
+    context.setModalOpen(false);
   };
 
+  const setIsOpenHandler = () => { 
+    setIsOpen(false);
+    context.setModalOpen(false);
+  }
+
   const modalStructure = {
-    setIsOpen: setIsOpen,
+    setIsOpenHandler: setIsOpenHandler,
     isForm: true,
     heading: "Save Explanation",
     content: "Please provide a name and description",
@@ -83,7 +90,13 @@ const Response = () => {
           <button className="explainBtn" onClick={sendRunCodeRequest}>
             Explain My Code
           </button>
-          <button className="explainBtn" onClick={() => setIsOpen(true)}>
+          <button
+            className="explainBtn"
+            onClick={() => {
+              setIsOpen(true);
+              context.setModalOpen(true);
+            }}
+          >
             Save Explanation
           </button>
         </div>
@@ -100,7 +113,11 @@ const Response = () => {
               <a href="https://beta.openai.com/tokenizer"> HERE</a>
             </h1>
           )}
-          {isOpen && <Modal object={modalStructure} />}
+          {isOpen &&
+            createPortal(
+              <Modal object={modalStructure} />,
+              document.getElementById("modal-root")
+            )}
         </div>
       </div>
     </React.Fragment>

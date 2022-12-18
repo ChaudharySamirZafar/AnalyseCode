@@ -14,10 +14,16 @@ const SavedResponse = (props) => {
     setIsOpen(false);
     context.updateCode(response.code);
     context.updateExplanation(response.explanation);
+    context.setModalOpen(false);
+  };
+
+  const setIsOpenHandler = () => {
+    setIsOpen(false);
+    context.setModalOpen(false);
   };
 
   const modalStructure = {
-    setIsOpen: setIsOpen,
+    setIsOpenHandler: setIsOpenHandler,
     heading: "View Explanation",
     content:
       "Are you sure you want to open this explanation? Any unsaved explanations will be lost",
@@ -26,15 +32,20 @@ const SavedResponse = (props) => {
   };
 
   const deleteButtonHandler = () => {
-    context.deleteObject(response)
+    context.deleteObject(response);
+    context.setModalOpen(false);
     setIsOpen(false);
   };
 
+  const setIsDeleteHandler = () => {
+    setIsDelete(false);
+    context.setModalOpen(false);
+  };
+
   const deleteModalStructure = {
-    setIsOpen: setIsDelete,
+    setIsOpenHandler: setIsDeleteHandler,
     heading: "Delete Explanation",
-    content:
-      "Are you sure you want to delete this explanation?",
+    content: "Are you sure you want to delete this explanation?",
     buttonText: "Yes",
     buttonCallBack: deleteButtonHandler,
   };
@@ -44,8 +55,24 @@ const SavedResponse = (props) => {
       <div className="savedResponseContainer">
         <h1>{response.name}</h1>
         <p>{response.description}</p>
-        <button onClick={() => setIsOpen(true)}> View Explanation </button>
-        <button onClick={() => setIsDelete(true)}> Delete Explanation </button>
+        <button
+          onClick={() => {
+            setIsOpen(true);
+            context.setModalOpen(true);
+          }}
+        >
+          {" "}
+          View Explanation{" "}
+        </button>
+        <button
+          onClick={() => {
+            setIsDelete(true);
+            context.setModalOpen(true);
+          }}
+        >
+          {" "}
+          Delete Explanation{" "}
+        </button>
       </div>
       {isOpen && <ModalVariant object={modalStructure} />}
       {isDelete && <ModalVariant object={deleteModalStructure} />}

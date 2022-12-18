@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import { RiCloseLine } from "react-icons/ri";
 
+
 const Modal = (props) => {
   const modalInfo = props.object;
-  const setIsOpen = modalInfo.setIsOpen;
+  const setIsOpenHandler = modalInfo.setIsOpenHandler;
   const isForm = modalInfo.isForm;
   const buttonCallBack = modalInfo.buttonCallBack;
 
@@ -32,13 +33,13 @@ const Modal = (props) => {
 
   return (
     <React.Fragment>
-      <div className={styles.darkBG} onClick={() => setIsOpen(false)} />
+      <div className={styles.darkBG} onClick={() => setIsOpenHandler()} />
       <div className={styles.centered}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
             <h5 className={styles.heading}>{modalInfo.heading}</h5>
           </div>
-          <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
+          <button className={styles.closeBtn} onClick={() => setIsOpenHandler()}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={styles.modalContent}>
@@ -79,7 +80,7 @@ const Modal = (props) => {
               </button>
               <button
                 className={styles.cancelBtn}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpenHandler()}
               >
                 Cancel
               </button>

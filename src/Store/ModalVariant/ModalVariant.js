@@ -4,17 +4,17 @@ import { RiCloseLine } from "react-icons/ri";
 
 const ModalVariant = (props) => {
   const object = props.object;
-  const setIsOpen = object.setIsOpen;
+  const setIsOpenHandler = object.setIsOpenHandler;
 
   return (
     <>
-      <div className={styles.darkBG} onClick={() => setIsOpen(false)} />
+      <div className={styles.darkBG} onClick={() => setIsOpenHandler()} />
       <div className={styles.centered}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
             <h5 className={styles.heading}>{object.heading}</h5>
           </div>
-          <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
+          <button className={styles.closeBtn} onClick={() => setIsOpenHandler()}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={styles.modalContent}>{object.content}</div>
@@ -28,7 +28,7 @@ const ModalVariant = (props) => {
               </button>
               <button
                 className={styles.cancelBtn}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpenHandler()}
               >
                 Cancel
               </button>

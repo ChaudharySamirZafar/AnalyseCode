@@ -7,7 +7,9 @@ const CodeExplanationContext = React.createContext({
   updateExplanation: (newExplanation) => {},
   listOfExplanations: [],
   updateList: (newObject) => {},
-  deleteObject: (object) => {}
+  deleteObject: (object) => {},
+  modalOpen: false,
+  setModalOpen: (state) => {}
 });
 
 export const CodeExplanationContextProvider = (props) => {
@@ -19,6 +21,8 @@ export const CodeExplanationContextProvider = (props) => {
 
   const initialListOfExplanations = localStorage.getItem('listOfExplanations');
   const [listOfExplanations, setListOfExplanations] = useState(JSON.parse(initialListOfExplanations) ?? []);
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const updateCodeHandler = (newCode) => {
     setCode(newCode);
@@ -53,7 +57,9 @@ export const CodeExplanationContextProvider = (props) => {
     updateExplanation: updateExplanationHandler,
     listOfExplanations: listOfExplanations,
     updateList: addExplanationToList,
-    deleteObject: deleteExplanation
+    deleteObject: deleteExplanation,
+    modalOpen: modalOpen,
+    setModalOpen: setModalOpen
   };
 
   return (

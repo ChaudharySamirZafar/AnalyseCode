@@ -37,7 +37,7 @@ const Editor = (props) => {
         onChange={onChangeHandler}
         fontSize={14}
         showPrintMargin={false}
-        showGutter={true}
+        showGutter={!context.modalOpen}
         highlightActiveLine={true}
         value={context.code}
         setOptions={{
