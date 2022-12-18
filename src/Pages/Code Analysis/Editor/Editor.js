@@ -38,6 +38,7 @@ const Editor = (props) => {
         fontSize={14}
         showPrintMargin={false}
         showGutter={!context.modalOpen}
+        wrapEnabled
         highlightActiveLine={true}
         value={context.code}
         setOptions={{

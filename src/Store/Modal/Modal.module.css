@@ -137,3 +137,27 @@
 textarea {
   margin-bottom: 3rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .modal {
+    width: 350px;
+    height: fit-content;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .modal {
+    width: 250px;
+    height: fit-content;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+}
