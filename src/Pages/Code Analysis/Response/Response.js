@@ -25,18 +25,13 @@ const Response = () => {
     const code = JSON.stringify(context.code);
 
     const jsonBody = {
-      model: "text-davinci-003",
       prompt: "explain this code\n" + code,
-      max_tokens: 3000,
-      temperature: 1,
     };
 
     fetch(EndPoints.Completions, {
-      method: "POST",
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer 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",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(jsonBody),
     })
