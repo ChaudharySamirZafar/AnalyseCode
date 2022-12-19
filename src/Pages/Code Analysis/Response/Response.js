@@ -30,6 +30,7 @@ const Response = () => {
 
     fetch(EndPoints.Completions, {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json"
       },
