@@ -1,8 +1,10 @@
 {
   "short_name": "Code Analysis",
   "name": "Code Analysis",
+  "description": "An application that acts as a repository for explanations of your code",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "author": "Chaudhary Samir Zafar"
 }
