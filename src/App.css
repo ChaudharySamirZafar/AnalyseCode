@@ -35,11 +35,15 @@ body {
 
 .socials {
   margin: 1rem;
-  font-size: 2.0rem;
+  font-size: 2rem;
   text-decoration: none;
   color: white;
 }
 
 .email {
   margin-top: 1rem;
+}
+
+a:visited {
+  color: #fff;
 }
