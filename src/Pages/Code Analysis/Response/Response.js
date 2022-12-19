@@ -29,7 +29,7 @@ const Response = () => {
     };
 
     fetch(EndPoints.Completions, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
