@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Explain My Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Explain My Code is an innovative application designed to simplify the process of creating and accessing code explanations for various programming concepts. With the power of the OpenAI API and the capabilities of ChatGPT, CodeExplain generates comprehensive and easy-to-understand explanations for code snippets, making it an invaluable tool for both beginners and experienced developers.
 
-## Available Scripts
+## Introduction
+Understanding code can often be challenging, especially for individuals new to programming. Explain My Code addresses this issue by providing clear, concise, and human-like explanations for code snippets. With the utilization of the OpenAI API, Explain My Code ensures that users receive accurate and well-structured explanations tailored to their queries.
 
-In the project directory, you can run:
+## Key Features
+- Code Explanation Generation
+  - Explain My Code utilizes the OpenAI API to generate detailed explanations for code snippets. Users can simply input their code, and with a click of a button an explanation will generated, an explanation that breaks down the logic, syntax, and purpose of the code.
 
-### `npm start`
+- User-Friendly Interface
+  - The application features an intuitive and user-friendly interface that allows users to easily input their code and receive instant explanations. The explanations are presented in a format that's easy to read and understand.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Save Explanations 
+  - Users can save generated explanations for future reference and share them with colleagues or friends. This feature is particularly useful for creating a personal repository of code explanations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Running the application
 
-### `npm test`
+### Installation
+1. Clone the repo - git clone https://github.com/ChaudharySamirZafar/AnalyseCode
+2. Navigate to the project directory or Open the directory in visual studio code
+3. Install dependencies - npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Usage
+1. Launch the application - 'npm start'
+2. Open your web browswer and navigate to 'http://localhost:3000'
+3. Enter your code snippet into the code editor
+4. Click the "Explain My Code" button and a explanation will be generated.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Contributing
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+1. Fork the repository
+2. Create a new branch: git checkout -b feature/your-feature-name
+3. Make your changes and commit them
+4. Push to your forked repository
+5. Create a pull request describing your changes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Licence
+This project is licensed under the MIT License
+##
+Feel free to contribute, provide feedback, and make use of ExplainMyCode to enhance your understanding of code snippets. Happy coding and explaining!
