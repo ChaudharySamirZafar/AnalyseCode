@@ -1,6 +1,6 @@
 {
-  "short_name": "Code Analysis",
-  "name": "Code Analysis",
+  "short_name": "Explain My Code",
+  "name": "Explain My Code",
   "description": "An application that acts as a repository for explanations of your code",
   "start_url": ".",
   "display": "standalone",
